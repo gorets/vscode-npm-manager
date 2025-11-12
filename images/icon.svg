@@ -1,0 +1,21 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#CB3837"/>
+
+  <!-- Package box -->
+  <rect x="30" y="40" width="48" height="48" fill="white" opacity="0.9" rx="4"/>
+
+  <!-- Box top flap -->
+  <path d="M 30 40 L 54 28 L 78 40 Z" fill="white" opacity="0.7"/>
+
+  <!-- Box lines (package detail) -->
+  <line x1="54" y1="40" x2="54" y2="88" stroke="#CB3837" stroke-width="2"/>
+  <line x1="30" y1="64" x2="78" y2="64" stroke="#CB3837" stroke-width="1" opacity="0.5"/>
+
+  <!-- Play/Run icon -->
+  <circle cx="90" cy="90" r="18" fill="#333333"/>
+  <path d="M 84 82 L 84 98 L 98 90 Z" fill="white"/>
+
+  <!-- npm text -->
+  <text x="64" y="118" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">npm</text>
+</svg>

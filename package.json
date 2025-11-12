@@ -10,6 +10,7 @@
   "categories": [
     "Other"
   ],
+  "icon": "images/icon.png",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -17,6 +18,30 @@
       {
         "command": "vscode-npm-manager.npmInstall",
         "title": "NPM Install"
+      },
+      {
+        "command": "vscode-npm-manager.npmUpdate",
+        "title": "NPM Update"
+      },
+      {
+        "command": "vscode-npm-manager.npmOutdated",
+        "title": "NPM Outdated"
+      },
+      {
+        "command": "vscode-npm-manager.npmAudit",
+        "title": "NPM Audit"
+      },
+      {
+        "command": "vscode-npm-manager.npmAuditFix",
+        "title": "NPM Audit Fix"
+      },
+      {
+        "command": "vscode-npm-manager.npmCI",
+        "title": "NPM CI"
+      },
+      {
+        "command": "vscode-npm-manager.npmTest",
+        "title": "NPM Test"
       },
       {
         "command": "vscode-npm-manager.npmRun",
@@ -27,16 +52,51 @@
       "explorer/context": [
         {
           "when": "resourceFilename == package.json",
-          "command": "vscode-npm-manager.npmInstall",
+          "submenu": "vscode-npm-manager.commands",
           "group": "npm@1"
+        }
+      ],
+      "vscode-npm-manager.commands": [
+        {
+          "command": "vscode-npm-manager.npmInstall",
+          "group": "1_basic@1"
         },
         {
-          "when": "resourceFilename == package.json",
+          "command": "vscode-npm-manager.npmUpdate",
+          "group": "1_basic@2"
+        },
+        {
+          "command": "vscode-npm-manager.npmCI",
+          "group": "1_basic@3"
+        },
+        {
+          "command": "vscode-npm-manager.npmTest",
+          "group": "2_test@1"
+        },
+        {
           "command": "vscode-npm-manager.npmRun",
-          "group": "npm@2"
+          "group": "2_test@2"
+        },
+        {
+          "command": "vscode-npm-manager.npmOutdated",
+          "group": "3_maintenance@1"
+        },
+        {
+          "command": "vscode-npm-manager.npmAudit",
+          "group": "3_maintenance@2"
+        },
+        {
+          "command": "vscode-npm-manager.npmAuditFix",
+          "group": "3_maintenance@3"
         }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "vscode-npm-manager.commands",
+        "label": "NPM Commands"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

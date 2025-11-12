@@ -9,23 +9,19 @@ interface PackageJson {
 export function activate(context: vscode.ExtensionContext) {
   console.log('NPM Manager extension is now active');
 
-  // Register NPM Install command
-  const npmInstallCommand = vscode.commands.registerCommand(
-    'vscode-npm-manager.npmInstall',
-    async (uri: vscode.Uri) => {
-      await runNpmInstall(uri);
-    }
-  );
+  // Register all NPM commands
+  const commands = [
+    vscode.commands.registerCommand('vscode-npm-manager.npmInstall', (uri: vscode.Uri) => runNpmCommand(uri, 'install', 'Installing dependencies')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmUpdate', (uri: vscode.Uri) => runNpmCommand(uri, 'update', 'Updating dependencies')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmOutdated', (uri: vscode.Uri) => runNpmCommand(uri, 'outdated', 'Checking for outdated packages')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmAudit', (uri: vscode.Uri) => runNpmCommand(uri, 'audit', 'Running security audit')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmAuditFix', (uri: vscode.Uri) => runNpmCommand(uri, 'audit fix', 'Fixing security vulnerabilities')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmCI', (uri: vscode.Uri) => runNpmCommand(uri, 'ci', 'Running clean install')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmTest', (uri: vscode.Uri) => runNpmCommand(uri, 'test', 'Running tests')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmRun', async (uri: vscode.Uri) => await showNpmRunQuickPick(uri)),
+  ];
 
-  // Register NPM Run command with quick pick
-  const npmRunCommand = vscode.commands.registerCommand(
-    'vscode-npm-manager.npmRun',
-    async (uri: vscode.Uri) => {
-      await showNpmRunQuickPick(uri);
-    }
-  );
-
-  context.subscriptions.push(npmInstallCommand, npmRunCommand);
+  context.subscriptions.push(...commands);
 }
 
 async function showNpmRunQuickPick(uri: vscode.Uri) {
@@ -71,18 +67,18 @@ async function getPackageJsonScripts(uri: vscode.Uri): Promise<string[]> {
   return [];
 }
 
-async function runNpmInstall(uri: vscode.Uri) {
+async function runNpmCommand(uri: vscode.Uri, command: string, message: string) {
   const workspaceFolder = path.dirname(uri.fsPath);
 
   const terminal = vscode.window.createTerminal({
-    name: 'NPM Install',
+    name: `NPM: ${command}`,
     cwd: workspaceFolder,
   });
 
   terminal.show();
-  terminal.sendText('npm install');
+  terminal.sendText(`npm ${command}`);
 
-  vscode.window.showInformationMessage(`Running npm install in ${path.basename(workspaceFolder)}`);
+  vscode.window.showInformationMessage(`${message} in ${path.basename(workspaceFolder)}`);
 }
 
 async function runNpmScript(uri: vscode.Uri, scriptName: string) {

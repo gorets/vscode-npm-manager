@@ -4,21 +4,35 @@ A Visual Studio Code extension that adds convenient context menu items for manag
 
 ## Features
 
-- **NPM Install**: Right-click on any package.json file and run `npm install` directly
-- **NPM Run**: Right-click on any package.json file to see a list of all available npm scripts and run them instantly
+Right-click on any `package.json` file to access a complete set of NPM commands through a convenient submenu:
+
+### Basic Commands
+- **NPM Install** - Install all dependencies from package.json
+- **NPM Update** - Update dependencies to their latest versions
+- **NPM CI** - Clean install (removes node_modules and installs from lock file)
+
+### Testing & Scripts
+- **NPM Test** - Run the test script defined in package.json
+- **NPM Run...** - Interactive menu to select and run any custom script from package.json
+
+### Maintenance & Security
+- **NPM Outdated** - Check which packages are outdated
+- **NPM Audit** - Run security vulnerability audit
+- **NPM Audit Fix** - Automatically fix security vulnerabilities
 
 ![NPM Manager Demo](images/demo.gif)
 
 ## Usage
 
 1. Right-click on any `package.json` file in the Explorer
-2. Select **NPM Install** to install dependencies
-3. Select **NPM Run...** to see a list of available scripts and run one
+2. Select **NPM Commands** to open the submenu
+3. Choose any command to execute it in the integrated terminal
 
 The extension will automatically:
 - Parse the package.json file
 - Extract all available scripts
-- Run the selected command in the integrated terminal
+- Run the selected command in the correct directory
+- Display status messages
 
 ## Installation
 
@@ -142,5 +156,14 @@ MIT
 ### 0.0.1
 
 Initial release with:
-- NPM Install context menu item
-- NPM Run context menu with dynamic script selection
+- Complete NPM Commands submenu in context menu
+- NPM Install - Install dependencies
+- NPM Update - Update dependencies
+- NPM CI - Clean install from lock file
+- NPM Test - Run tests
+- NPM Run - Interactive script selection
+- NPM Outdated - Check for outdated packages
+- NPM Audit - Security vulnerability scan
+- NPM Audit Fix - Auto-fix vulnerabilities
+- Dynamic script extraction from package.json
+- Integrated terminal support for all commands

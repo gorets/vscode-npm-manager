@@ -6,7 +6,19 @@ All notable changes to the "vscode-npm-manager" extension will be documented in 
 
 ### Added
 - Initial release
-- NPM Install command for package.json files via context menu
-- NPM Run command with dynamic script selection via quick pick
-- Integrated terminal support for running commands
-- Basic error handling and user feedback
+- Complete NPM Commands submenu for package.json files
+- Basic commands:
+  - NPM Install - Install all dependencies
+  - NPM Update - Update dependencies to latest versions
+  - NPM CI - Clean install from lock file
+- Testing & Scripts:
+  - NPM Test - Run test script
+  - NPM Run - Interactive selection of custom scripts from package.json
+- Maintenance & Security:
+  - NPM Outdated - Check for outdated packages
+  - NPM Audit - Security vulnerability audit
+  - NPM Audit Fix - Automatically fix vulnerabilities
+- Integrated terminal support for all commands
+- Dynamic script extraction and display
+- User feedback messages for all operations
+- SVG icon (requires conversion to PNG for publishing)
