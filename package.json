@@ -1,9 +1,9 @@
 {
   "name": "vscode-npm-manager",
-  "displayName": "NPM Manager",
-  "description": "Context menu for running NPM commands on package.json files",
+  "displayName": "Npm Manager",
+  "description": "Context menu for running Npm commands on package.json files",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "Vladimir Gorobets",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -17,39 +17,39 @@
     "commands": [
       {
         "command": "vscode-npm-manager.npmInstall",
-        "title": "NPM Install"
+        "title": "Npm Install"
       },
       {
         "command": "vscode-npm-manager.npmUpdate",
-        "title": "NPM Update"
+        "title": "Npm Update"
       },
       {
         "command": "vscode-npm-manager.npmOutdated",
-        "title": "NPM Outdated"
+        "title": "Npm Outdated"
       },
       {
         "command": "vscode-npm-manager.npmAudit",
-        "title": "NPM Audit"
+        "title": "Npm Audit"
       },
       {
         "command": "vscode-npm-manager.npmAuditFix",
-        "title": "NPM Audit Fix"
+        "title": "Npm Audit Fix"
       },
       {
         "command": "vscode-npm-manager.npmCI",
-        "title": "NPM CI"
+        "title": "Npm CI"
       },
       {
         "command": "vscode-npm-manager.npmTest",
-        "title": "NPM Test"
+        "title": "Npm Test"
       },
       {
         "command": "vscode-npm-manager.npmRun",
-        "title": "NPM Run..."
+        "title": "Npm Run..."
       },
       {
         "command": "vscode-npm-manager.npmCacheClean",
-        "title": "NPM Cache Clean"
+        "title": "Npm Cache Clean"
       }
     ],
     "menus": {
@@ -102,7 +102,7 @@
     "submenus": [
       {
         "id": "vscode-npm-manager.commands",
-        "label": "NPM Commands"
+        "label": "Npm Commands"
       }
     ]
   },
@@ -126,7 +126,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/vscode-npm-manager.git"
+    "url": "https://github.com/gorets/vscode-npm-manager.git"
   },
   "keywords": [
     "npm",
