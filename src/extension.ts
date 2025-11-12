@@ -18,6 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('vscode-npm-manager.npmAuditFix', (uri: vscode.Uri) => runNpmCommand(uri, 'audit fix', 'Fixing security vulnerabilities')),
     vscode.commands.registerCommand('vscode-npm-manager.npmCI', (uri: vscode.Uri) => runNpmCommand(uri, 'ci', 'Running clean install')),
     vscode.commands.registerCommand('vscode-npm-manager.npmTest', (uri: vscode.Uri) => runNpmCommand(uri, 'test', 'Running tests')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmCacheClean', (uri: vscode.Uri) => runNpmCommand(uri, 'cache clean --force', 'Cleaning npm cache')),
     vscode.commands.registerCommand('vscode-npm-manager.npmRun', async (uri: vscode.Uri) => await showNpmRunQuickPick(uri)),
   ];
 

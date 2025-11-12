@@ -46,6 +46,10 @@
       {
         "command": "vscode-npm-manager.npmRun",
         "title": "NPM Run..."
+      },
+      {
+        "command": "vscode-npm-manager.npmCacheClean",
+        "title": "NPM Cache Clean"
       }
     ],
     "menus": {
@@ -88,6 +92,10 @@
         {
           "command": "vscode-npm-manager.npmAuditFix",
           "group": "3_maintenance@3"
+        },
+        {
+          "command": "vscode-npm-manager.npmCacheClean",
+          "group": "3_maintenance@4"
         }
       ]
     },

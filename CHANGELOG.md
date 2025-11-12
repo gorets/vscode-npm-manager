@@ -18,6 +18,7 @@ All notable changes to the "vscode-npm-manager" extension will be documented in 
   - NPM Outdated - Check for outdated packages
   - NPM Audit - Security vulnerability audit
   - NPM Audit Fix - Automatically fix vulnerabilities
+  - NPM Cache Clean - Clear npm cache (--force)
 - Integrated terminal support for all commands
 - Dynamic script extraction and display
 - User feedback messages for all operations

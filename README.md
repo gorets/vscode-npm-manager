@@ -19,6 +19,7 @@ Right-click on any `package.json` file to access a complete set of NPM commands 
 - **NPM Outdated** - Check which packages are outdated
 - **NPM Audit** - Run security vulnerability audit
 - **NPM Audit Fix** - Automatically fix security vulnerabilities
+- **NPM Cache Clean** - Clear npm cache (uses --force flag)
 
 ![NPM Manager Demo](images/demo.gif)
 
@@ -165,5 +166,6 @@ Initial release with:
 - NPM Outdated - Check for outdated packages
 - NPM Audit - Security vulnerability scan
 - NPM Audit Fix - Auto-fix vulnerabilities
+- NPM Cache Clean - Clear npm cache
 - Dynamic script extraction from package.json
 - Integrated terminal support for all commands
