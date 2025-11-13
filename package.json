@@ -102,44 +102,44 @@
           "group": "1_basic@3"
         },
         {
-          "command": "vscode-npm-manager.npmTest",
+          "command": "vscode-npm-manager.npmRun",
           "group": "2_test@1"
         },
         {
-          "command": "vscode-npm-manager.npmRun",
-          "group": "2_test@2"
+          "command": "vscode-npm-manager.npmStart",
+          "group": "3_test@1"
         },
         {
-          "command": "vscode-npm-manager.npmOutdated",
-          "group": "3_maintenance@1"
-        },
-        {
-          "command": "vscode-npm-manager.npmAudit",
-          "group": "3_maintenance@2"
-        },
-        {
-          "command": "vscode-npm-manager.npmAuditFix",
-          "group": "3_maintenance@3"
-        },
-        {
-          "command": "vscode-npm-manager.npmCacheClean",
-          "group": "3_maintenance@4"
+          "command": "vscode-npm-manager.npmTest",
+          "group": "3_test@2"
         },
         {
           "command": "vscode-npm-manager.npmBuild",
-          "group": "2_test@3"
+          "group": "3_test@3"
         },
         {
-          "command": "vscode-npm-manager.npmStart",
-          "group": "2_test@4"
+          "command": "vscode-npm-manager.npmOutdated",
+          "group": "4_maintenance@1"
+        },
+        {
+          "command": "vscode-npm-manager.npmAudit",
+          "group": "4_maintenance@2"
+        },
+        {
+          "command": "vscode-npm-manager.npmAuditFix",
+          "group": "4_maintenance@3"
+        },
+        {
+          "command": "vscode-npm-manager.npmCacheClean",
+          "group": "4_maintenance@4"
         },
         {
           "submenu": "vscode-npm-manager.version",
-          "group": "4_release@1"
+          "group": "5_release@1"
         },
         {
           "submenu": "vscode-npm-manager.publish",
-          "group": "4_release@2"
+          "group": "5_release@2"
         }
       ],
       "vscode-npm-manager.version": [
