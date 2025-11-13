@@ -50,6 +50,34 @@
       {
         "command": "vscode-npm-manager.npmCacheClean",
         "title": "Npm Cache Clean"
+      },
+      {
+        "command": "vscode-npm-manager.npmBuild",
+        "title": "Npm Build"
+      },
+      {
+        "command": "vscode-npm-manager.npmStart",
+        "title": "Npm Start"
+      },
+      {
+        "command": "vscode-npm-manager.npmVersionPatch",
+        "title": "Patch (0.0.x)"
+      },
+      {
+        "command": "vscode-npm-manager.npmVersionMinor",
+        "title": "Minor (0.x.0)"
+      },
+      {
+        "command": "vscode-npm-manager.npmVersionMajor",
+        "title": "Major (x.0.0)"
+      },
+      {
+        "command": "vscode-npm-manager.npmPublishLatest",
+        "title": "Latest"
+      },
+      {
+        "command": "vscode-npm-manager.npmPublishDev",
+        "title": "Dev"
       }
     ],
     "menus": {
@@ -96,6 +124,41 @@
         {
           "command": "vscode-npm-manager.npmCacheClean",
           "group": "3_maintenance@4"
+        },
+        {
+          "command": "vscode-npm-manager.npmBuild",
+          "group": "2_test@3"
+        },
+        {
+          "command": "vscode-npm-manager.npmStart",
+          "group": "2_test@4"
+        },
+        {
+          "submenu": "vscode-npm-manager.version",
+          "group": "4_release@1"
+        },
+        {
+          "submenu": "vscode-npm-manager.publish",
+          "group": "4_release@2"
+        }
+      ],
+      "vscode-npm-manager.version": [
+        {
+          "command": "vscode-npm-manager.npmVersionPatch"
+        },
+        {
+          "command": "vscode-npm-manager.npmVersionMinor"
+        },
+        {
+          "command": "vscode-npm-manager.npmVersionMajor"
+        }
+      ],
+      "vscode-npm-manager.publish": [
+        {
+          "command": "vscode-npm-manager.npmPublishLatest"
+        },
+        {
+          "command": "vscode-npm-manager.npmPublishDev"
         }
       ]
     },
@@ -103,6 +166,14 @@
       {
         "id": "vscode-npm-manager.commands",
         "label": "Npm Commands"
+      },
+      {
+        "id": "vscode-npm-manager.version",
+        "label": "Npm Version"
+      },
+      {
+        "id": "vscode-npm-manager.publish",
+        "label": "Npm Publish"
       }
     ]
   },

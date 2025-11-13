@@ -14,11 +14,16 @@ All notable changes to the "vscode-npm-manager" extension will be documented in 
 - Testing & Scripts:
   - NPM Test - Run test script
   - NPM Run - Interactive selection of custom scripts from package.json
+  - NPM Build - Run build script
+  - NPM Start - Start application
 - Maintenance & Security:
   - NPM Outdated - Check for outdated packages
   - NPM Audit - Security vulnerability audit
   - NPM Audit Fix - Automatically fix vulnerabilities
   - NPM Cache Clean - Clear npm cache (--force)
+- Release & Publishing:
+  - NPM Version submenu with Patch, Minor, Major version bumps
+  - NPM Publish submenu with Latest and Dev tags
 - Integrated terminal support for all commands
 - Dynamic script extraction and display
 - User feedback messages for all operations

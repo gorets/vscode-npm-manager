@@ -14,12 +14,23 @@ Right-click on any `package.json` file to access a complete set of NPM commands 
 ### Testing & Scripts
 - **NPM Test** - Run the test script defined in package.json
 - **NPM Run...** - Interactive menu to select and run any custom script from package.json
+- **NPM Build** - Run the build script
+- **NPM Start** - Start the application
 
 ### Maintenance & Security
 - **NPM Outdated** - Check which packages are outdated
 - **NPM Audit** - Run security vulnerability audit
 - **NPM Audit Fix** - Automatically fix security vulnerabilities
 - **NPM Cache Clean** - Clear npm cache (uses --force flag)
+
+### Release & Publishing
+- **NPM Version** - Bump package version (submenu):
+  - **Patch (0.0.x)** - Bug fixes and minor changes
+  - **Minor (0.x.0)** - New features, backward compatible
+  - **Major (x.0.0)** - Breaking changes
+- **NPM Publish** - Publish to npm registry (submenu):
+  - **Latest** - Publish with 'latest' tag
+  - **Dev** - Publish with 'dev' tag
 
 ![NPM Manager Demo](images/demo.gif)
 
@@ -158,14 +169,11 @@ MIT
 
 Initial release with:
 - Complete NPM Commands submenu in context menu
-- NPM Install - Install dependencies
-- NPM Update - Update dependencies
-- NPM CI - Clean install from lock file
-- NPM Test - Run tests
-- NPM Run - Interactive script selection
-- NPM Outdated - Check for outdated packages
-- NPM Audit - Security vulnerability scan
-- NPM Audit Fix - Auto-fix vulnerabilities
-- NPM Cache Clean - Clear npm cache
+- Basic commands: Install, Update, CI
+- Testing & Scripts: Test, Run (interactive), Build, Start
+- Maintenance & Security: Outdated, Audit, Audit Fix, Cache Clean
+- Release & Publishing:
+  - Version bump submenu (Patch, Minor, Major)
+  - Publish submenu (Latest tag, Dev tag)
 - Dynamic script extraction from package.json
 - Integrated terminal support for all commands

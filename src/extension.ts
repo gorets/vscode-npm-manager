@@ -19,6 +19,13 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('vscode-npm-manager.npmCI', (uri: vscode.Uri) => runNpmCommand(uri, 'ci', 'Running clean install')),
     vscode.commands.registerCommand('vscode-npm-manager.npmTest', (uri: vscode.Uri) => runNpmCommand(uri, 'test', 'Running tests')),
     vscode.commands.registerCommand('vscode-npm-manager.npmCacheClean', (uri: vscode.Uri) => runNpmCommand(uri, 'cache clean --force', 'Cleaning npm cache')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmBuild', (uri: vscode.Uri) => runNpmCommand(uri, 'run build', 'Building project')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmStart', (uri: vscode.Uri) => runNpmCommand(uri, 'start', 'Starting application')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmVersionPatch', (uri: vscode.Uri) => runNpmCommand(uri, 'version patch', 'Bumping patch version')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmVersionMinor', (uri: vscode.Uri) => runNpmCommand(uri, 'version minor', 'Bumping minor version')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmVersionMajor', (uri: vscode.Uri) => runNpmCommand(uri, 'version major', 'Bumping major version')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmPublishLatest', (uri: vscode.Uri) => runNpmCommand(uri, 'publish --tag latest', 'Publishing with latest tag')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmPublishDev', (uri: vscode.Uri) => runNpmCommand(uri, 'publish --tag dev', 'Publishing with dev tag')),
     vscode.commands.registerCommand('vscode-npm-manager.npmRun', async (uri: vscode.Uri) => await showNpmRunQuickPick(uri)),
   ];
 
