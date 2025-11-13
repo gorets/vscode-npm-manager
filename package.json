@@ -24,6 +24,10 @@
         "title": "Npm Update"
       },
       {
+        "command": "vscode-npm-manager.npmUninstall",
+        "title": "Npm Uninstall..."
+      },
+      {
         "command": "vscode-npm-manager.npmOutdated",
         "title": "Npm Outdated"
       },
@@ -98,8 +102,12 @@
           "group": "1_basic@2"
         },
         {
-          "command": "vscode-npm-manager.npmCI",
+          "command": "vscode-npm-manager.npmUninstall",
           "group": "1_basic@3"
+        },
+        {
+          "command": "vscode-npm-manager.npmCI",
+          "group": "1_basic@4"
         },
         {
           "command": "vscode-npm-manager.npmRun",

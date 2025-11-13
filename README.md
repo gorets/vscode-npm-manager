@@ -9,6 +9,7 @@ Right-click on any `package.json` file to access a complete set of NPM commands 
 ### Basic Commands
 - **NPM Install** - Install all dependencies from package.json
 - **NPM Update** - Update dependencies to their latest versions
+- **NPM Uninstall...** - Interactive package removal (shows dependencies and devDependencies separately)
 - **NPM CI** - Clean install (removes node_modules and installs from lock file)
 
 ### Testing & Scripts
@@ -169,11 +170,12 @@ MIT
 
 Initial release with:
 - Complete NPM Commands submenu in context menu
-- Basic commands: Install, Update, CI
+- Basic commands: Install, Update, Uninstall (interactive), CI
 - Testing & Scripts: Test, Run (interactive), Build, Start
 - Maintenance & Security: Outdated, Audit, Audit Fix, Cache Clean
 - Release & Publishing:
   - Version bump submenu (Patch, Minor, Major)
   - Publish submenu (Latest tag, Dev tag)
 - Dynamic script extraction from package.json
+- Interactive package uninstall with dependencies/devDependencies separation
 - Integrated terminal support for all commands

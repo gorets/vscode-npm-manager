@@ -10,6 +10,7 @@ All notable changes to the "vscode-npm-manager" extension will be documented in 
 - Basic commands:
   - NPM Install - Install all dependencies
   - NPM Update - Update dependencies to latest versions
+  - NPM Uninstall - Interactive package removal with dependencies/devDependencies separation
   - NPM CI - Clean install from lock file
 - Testing & Scripts:
   - NPM Test - Run test script

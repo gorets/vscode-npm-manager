@@ -4,6 +4,8 @@ import * as fs from 'fs';
 
 interface PackageJson {
   scripts?: { [key: string]: string };
+  dependencies?: { [key: string]: string };
+  devDependencies?: { [key: string]: string };
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -13,6 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
   const commands = [
     vscode.commands.registerCommand('vscode-npm-manager.npmInstall', (uri: vscode.Uri) => runNpmCommand(uri, 'install', 'Installing dependencies')),
     vscode.commands.registerCommand('vscode-npm-manager.npmUpdate', (uri: vscode.Uri) => runNpmCommand(uri, 'update', 'Updating dependencies')),
+    vscode.commands.registerCommand('vscode-npm-manager.npmUninstall', async (uri: vscode.Uri) => await showNpmUninstallQuickPick(uri)),
     vscode.commands.registerCommand('vscode-npm-manager.npmOutdated', (uri: vscode.Uri) => runNpmCommand(uri, 'outdated', 'Checking for outdated packages')),
     vscode.commands.registerCommand('vscode-npm-manager.npmAudit', (uri: vscode.Uri) => runNpmCommand(uri, 'audit', 'Running security audit')),
     vscode.commands.registerCommand('vscode-npm-manager.npmAuditFix', (uri: vscode.Uri) => runNpmCommand(uri, 'audit fix', 'Fixing security vulnerabilities')),
@@ -60,6 +63,65 @@ async function showNpmRunQuickPick(uri: vscode.Uri) {
   }
 }
 
+async function showNpmUninstallQuickPick(uri: vscode.Uri) {
+  const packageJsonPath = uri.fsPath;
+
+  try {
+    const content = fs.readFileSync(packageJsonPath, 'utf8');
+    const packageJson: PackageJson = JSON.parse(content);
+
+    const quickPickItems: vscode.QuickPickItem[] = [];
+
+    // Add dependencies section
+    if (packageJson.dependencies && Object.keys(packageJson.dependencies).length > 0) {
+      quickPickItems.push({
+        label: 'Dependencies',
+        kind: vscode.QuickPickItemKind.Separator
+      });
+
+      Object.keys(packageJson.dependencies).forEach(pkgName => {
+        quickPickItems.push({
+          label: pkgName,
+          description: packageJson.dependencies?.[pkgName] || '',
+          detail: 'dependency'
+        });
+      });
+    }
+
+    // Add devDependencies section
+    if (packageJson.devDependencies && Object.keys(packageJson.devDependencies).length > 0) {
+      quickPickItems.push({
+        label: 'Dev Dependencies',
+        kind: vscode.QuickPickItemKind.Separator
+      });
+
+      Object.keys(packageJson.devDependencies).forEach(pkgName => {
+        quickPickItems.push({
+          label: pkgName,
+          description: packageJson.devDependencies?.[pkgName] || '',
+          detail: 'devDependency'
+        });
+      });
+    }
+
+    if (quickPickItems.length === 0) {
+      vscode.window.showWarningMessage('No packages found in package.json');
+      return;
+    }
+
+    const selectedPackage = await vscode.window.showQuickPick(quickPickItems, {
+      placeHolder: 'Select a package to uninstall',
+      matchOnDescription: true,
+    });
+
+    if (selectedPackage && selectedPackage.kind !== vscode.QuickPickItemKind.Separator) {
+      await runNpmUninstall(uri, selectedPackage.label, selectedPackage.detail === 'devDependency');
+    }
+  } catch (error) {
+    vscode.window.showErrorMessage(`Error reading package.json: ${error}`);
+  }
+}
+
 async function getPackageJsonScripts(uri: vscode.Uri): Promise<string[]> {
   try {
     const packageJsonPath = uri.fsPath;
@@ -101,6 +163,21 @@ async function runNpmScript(uri: vscode.Uri, scriptName: string) {
   terminal.sendText(`npm run ${scriptName}`);
 
   vscode.window.showInformationMessage(`Running npm run ${scriptName} in ${path.basename(workspaceFolder)}`);
+}
+
+async function runNpmUninstall(uri: vscode.Uri, packageName: string, isDevDependency: boolean) {
+  const workspaceFolder = path.dirname(uri.fsPath);
+
+  const terminal = vscode.window.createTerminal({
+    name: `NPM Uninstall: ${packageName}`,
+    cwd: workspaceFolder,
+  });
+
+  terminal.show();
+  terminal.sendText(`npm uninstall ${packageName}`);
+
+  const depType = isDevDependency ? 'dev dependency' : 'dependency';
+  vscode.window.showInformationMessage(`Uninstalling ${packageName} (${depType}) in ${path.basename(workspaceFolder)}`);
 }
 
 export function deactivate() {}
