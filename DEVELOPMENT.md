@@ -116,6 +116,23 @@ This creates a `.vsix` file that can be:
 
 ### Manual Installation
 
+#### Add Code (Cursor) to PATH
+
+View → Command Palette… (or Cmd + Shift + P).
+
+```bash
+Shell Command: Install 'code | cursor' command in PATH
+```
+
+#### Check 
+
+```bash
+code --version
+# cursor --version
+```
+
+#### Install Local Extension
+
 ```bash
 # Install the extension from VSIX
 code --install-extension vscode-npm-manager-0.0.1.vsix

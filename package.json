@@ -3,7 +3,7 @@
   "displayName": "Npm Manager",
   "description": "Context menu for running Npm commands on package.json files",
   "version": "0.0.1",
-  "publisher": "Vladimir Gorobets",
+  "publisher": "gorets",
   "engines": {
     "vscode": "^1.74.0"
   },
